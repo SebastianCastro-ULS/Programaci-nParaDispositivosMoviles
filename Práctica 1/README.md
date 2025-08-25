@@ -36,7 +36,9 @@
   git clone https://github.com/SebastianCastro-ULS/Programaci-nParaDispositivosMoviles.git
 
   ```
-3. Abrir el proyecto con IntelliJ IDEA o un editor compatible con Kotlin.
-4. Ejecutar cada archivo.
+2. Abrir el proyecto con IntelliJ IDEA o un editor compatible con Kotlin.
+   [![Descargar IntelliJ IDEA](https://img.shields.io/badge/Descargar–IntelliJ%20IDEA-blue?logo=jetbrains&style=for-the-badge)](https://www.jetbrains.com/es-es/idea/download/?section=windows#)
+
+3. Ejecutar cada archivo.
 
 ## 3. Conclusiones
