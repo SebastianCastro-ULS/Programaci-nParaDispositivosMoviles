@@ -30,9 +30,13 @@
 ## 2. Detalles de la Práctica 1
 ### Ejecución de archivos
 1. Clonar repositorio
+
 **Comando para clonar repositorio**
-git clone https://github.com/SebastianCastro-ULS/Programaci-nParaDispositivosMoviles.git
-2. Abrir el proyecto con IntelliJ IDEA o un editor compatible con Kotlin.
-3. Ejecutar cada archivo.
+  ```bash
+  git clone https://github.com/SebastianCastro-ULS/Programaci-nParaDispositivosMoviles.git
+
+  ```
+3. Abrir el proyecto con IntelliJ IDEA o un editor compatible con Kotlin.
+4. Ejecutar cada archivo.
 
 ## 3. Conclusiones
