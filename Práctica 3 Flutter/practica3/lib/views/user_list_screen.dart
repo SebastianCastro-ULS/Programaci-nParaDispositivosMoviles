@@ -4,7 +4,6 @@ import '../viewmodels/user_view_model.dart';
 import '../models/user.dart';
 import 'user_form_screen.dart';
 
-// Se muestra la lista de usuarios
 class UserListScreen extends StatelessWidget {
   const UserListScreen({super.key});
 
@@ -12,8 +11,10 @@ class UserListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = context.watch<UserViewModel>();
 
+    final email = ModalRoute.of(context)?.settings.arguments ?? 'Usuario';
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Lista de Usuarios')),
+      appBar: AppBar(title: Text('Bienvenido: $email')),
 
       body: Column(
         children: [
