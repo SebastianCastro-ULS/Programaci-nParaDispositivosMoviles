@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "835561852078",
+    "project_id": "ecomun",
+    "storage_bucket": "ecomun.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835561852078:android:715701601bb4db755c313f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9HlTXDltzS9XKLT_yqF0oWfWs3qHBDFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
