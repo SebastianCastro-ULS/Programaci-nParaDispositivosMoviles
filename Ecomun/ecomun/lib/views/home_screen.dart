@@ -6,6 +6,7 @@ import '../viewmodels/requests_viewmodel.dart';
 import '../models/request_model.dart';
 import '../widgets/app_drawer.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     
-    // ✅ Ejecuta después de que termine el build
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final auth = context.read<AuthViewModel>();
       final mv = context.read<MaterialsViewModel>();
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mv.loadMaterials();
         }
         if (rv.requests.isEmpty) {
-          rv.loadForUser(auth.user!.id);
+          rv.loadForUser(FirebaseAuth.instance.currentUser!.uid);
         }
       }
     });

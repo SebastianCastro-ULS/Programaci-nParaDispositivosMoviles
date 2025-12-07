@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:go_router/go_router.dart'; // ✅ Importa GoRouter
+import 'package:go_router/go_router.dart'; 
 import '../viewmodels/auth_viewmodel.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,8 +12,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailCtrl = TextEditingController(text: 'scastrom@ulasalle.edu.pe');
-  final _passCtrl = TextEditingController(text: '123456');
+  final _emailCtrl = TextEditingController();
+  final _passCtrl = TextEditingController();
 
   @override
   void dispose() {
@@ -32,8 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
       
       if (!mounted) return;
       
-      // ✅ GoRouter redirigirá automáticamente gracias al redirect en app_router
-      // Pero también puedes navegar manualmente si lo prefieres:
       if (success) {
         context.go('/home');
       }
@@ -69,7 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
+
+                  /// FORMULARIO
                   Form(
                     key: _formKey,
                     child: Column(
@@ -100,6 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
+
                   if (auth.error != null)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -109,7 +110,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  const SizedBox(height: 12),
+
+                  const SizedBox(height: 16),
+
+                  /// BOTÓN LOGIN
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -128,6 +132,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           : const Text('Iniciar Sesión'),
                     ),
                   ),
+
+                  const SizedBox(height: 12),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("¿No tienes cuenta?"),
+                      TextButton(
+                        onPressed: () {
+                          context.push('/register');
+                        },
+                        child: const Text(
+                          "Crear cuenta",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+
                   const SizedBox(height: 12),
                 ],
               ),

@@ -1,29 +1,29 @@
 import 'package:flutter/foundation.dart';
-import '../services/mock_repository.dart';
+import '../services/firebase_user_service.dart';
 import '../models/user_model.dart';
 
 class UserViewModel extends ChangeNotifier {
-  final MockRepository repo;
+  final FirebaseUserService _userService;
   
   UserModel? _user;
   bool _loading = false;
   String? _error;
 
-  UserViewModel(this.repo);
+  UserViewModel(this._userService);
 
-  // Getters públicos
+  // Getters
   UserModel? get user => _user;
   bool get loading => _loading;
   String? get error => _error;
 
-  //Cargamos la información del usuario !!! (P)
+  // Cargar información del usuario
   Future<void> loadUser(String id) async {
     _loading = true;
     _error = null;
     notifyListeners();
 
     try {
-      _user = await repo.getUser(id);
+      _user = await _userService.getUser(id);
       _loading = false;
       notifyListeners();
     } catch (e) {
@@ -33,7 +33,27 @@ class UserViewModel extends ChangeNotifier {
     }
   }
 
-  //Limpiamos el mensaje de error
+  // Actualizar usuario
+  Future<bool> updateUser(UserModel user) async {
+    _loading = true;
+    _error = null;
+    notifyListeners();
+
+    try {
+      await _userService.updateUser(user);
+      _user = user;
+      _loading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _loading = false;
+      _error = 'Error al actualizar usuario: ${e.toString()}';
+      notifyListeners();
+      return false;
+    }
+  }
+
+  // Limpiar error
   void clearError() {
     _error = null;
     notifyListeners();
